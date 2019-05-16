@@ -1,9 +1,22 @@
+## Want to turn your tplink smart plug on and off with your PC? Save on power? T
+
+## this script will ping a network resource (a pc, phone, anything with an IP addresss) and turn on a Kasa Smart Plug
+## on and off accordingly 
+
 ## Adapted script from https://blog.georgovassilis.com/2016/05/07/controlling-the-tp-link-hs100-wi-fi-smart-plug/
 
-## this script will ping a network resource (a pc in my case) and turn on a Kasa Smart Plug when it comes online, 
-## then turn the plug off again when the machine is off/sleeping/not found on the local network
+## Notes for scheduling this script from Windows Task Scheduler:
+## 
+## Works with Windows 10 with the bash shell installed.
+## Taks Scheduler options:
+##
+## general | security options | run whether user is logged on or not
+## triggers | at system startup
+## actions | start a program | program script = bash | arguments = -c "/AddPathToScrip/tpmonitor.sh 1>/dev/null" 
+## settings | if the task fails, restart every 10 minutes
 
 
+## --------------------------------------------------
 ## the payloads below are used to control the smart plug
 
 # encoded {"system":{"set_relay_state":{"state":1}}}
@@ -16,11 +29,13 @@ payload_off="AAAAKtDygfiL/5r31e+UtsWg1Iv5nPCR6LfEsNGlwOLYo4HyhueT9tTu3qPeow=="
 payload_query="AAAAI9Dw0qHYq9+61/XPtJS20bTAn+yV5o/hh+jK8J7rh+vLtpbr"
 
 
-## (My smart plug and PC have a fixed IP on my network)
-## looptime = the polling time in seconts between checking the plug and device status
-## Change these:
+## resource IP = static IP of device to be monitored
 resource_ip=192.168.0.20
+
+## plug IP = static IP of tp-link smart plug
 plug_ip=192.168.0.80
+
+## looptime = the polling time in seconts between checking the plug and device status
 looptime=10
 
 # flags
