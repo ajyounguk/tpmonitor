@@ -1,4 +1,4 @@
-## Want to turn your tplink smart plug on and off with your PC? Save on power? T
+## Want to switch your tplink smart plug on and off based on wether you PC (or device) is on? Save on power?
 
 ## this script will ping a network resource (a pc, phone, anything with an IP addresss) and turn on a Kasa Smart Plug
 ## on and off accordingly 
