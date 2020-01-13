@@ -1,6 +1,6 @@
 # tpmonitor
 
-Want to switch power on and off based on whether a PC/device is on/off? 
+Want to switch power on and off based on whether a network PC/device is on/off? 
 
 This is a shell script which will instruct a tplink hs100 smart plug to turn on and off, based on whether a device is available on the network. It will monitor an IP address, and send out a command to tp-link HS100 smart plug accordingly.
 
